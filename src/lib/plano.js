@@ -33,6 +33,12 @@ export function proxima(S) {
   return sessoes(S.gym).find((s) => !S.sessoes[s.n]?.done) || null;
 }
 
+// core_rep vem como "8–10 por lado / 20–30 s": isometria usa só o tempo, o resto só as repetições.
+function coreAlvo(coreRep, e) {
+  const [reps, tempo] = coreRep.split("/").map((x) => x.replace("por lado", "").trim());
+  return (e.iso ? tempo : reps) + (e.lado ? " por lado" : "");
+}
+
 export function exList(gym, t, f) {
   const P = D.fases[f];
   return D.ex[t].map((e) => {
@@ -41,7 +47,7 @@ export function exList(gym, t, f) {
       n,
       base: e.n,
       s: e.core ? (f === 1 ? "2" : "3") : gym === 2 && f > 1 ? "4" : P.s.split(" ")[0],
-      r: e.core ? P.core_rep : P.rep,
+      r: e.core ? coreAlvo(P.core_rep, e) : P.rep,
       rir: P.rir,
       omni: P.omni,
       desc: e.core ? "45 s" : P.desc,

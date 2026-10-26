@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { cicloEst, lowStreak, pilatesNaSemana, proxima, sessoes } from "../plano.js";
+import { cicloEst, exList, lowStreak, pilatesNaSemana, proxima, sessoes } from "../plano.js";
 
 describe("sessoes", () => {
   it("3x por semana gera a sequência A, B, C, A…", () => {
@@ -39,5 +39,16 @@ describe("pilates e alertas", () => {
   it("detecta duas notas negativas seguidas", () => {
     expect(lowStreak({ gym: 3, sessoes: { 1: { nota: -1 }, 2: { nota: -2 } } })).toBe(2);
     expect(lowStreak({ gym: 3, sessoes: { 1: { nota: -1 }, 2: { nota: 2 } } })).toBe(0);
+  });
+});
+
+describe("exList", () => {
+  it("isometria mostra só tempo e core dinâmico só repetições", () => {
+    const b = exList(3, "B", 1),
+      c = exList(3, "C", 2);
+    expect(b.find((e) => e.base === "Prancha frontal").r).toBe("20–30 s");
+    expect(b.find((e) => e.base === "Abdominal supra").r).toBe("8–10");
+    expect(c.find((e) => e.base === "Prancha lateral").r).toBe("30–40 s por lado");
+    expect(c.find((e) => e.base === "Bird dog (quatro apoios)").r).toBe("10–12 por lado");
   });
 });
