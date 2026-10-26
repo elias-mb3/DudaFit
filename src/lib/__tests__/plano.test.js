@@ -48,7 +48,7 @@ describe("exList", () => {
       c = exList(3, "C", 2);
     expect(b.find((e) => e.base === "Prancha frontal").r).toBe("20–30 s");
     expect(b.find((e) => e.base === "Abdominal supra").r).toBe("8–10");
-    expect(c.find((e) => e.base === "Prancha lateral").r).toBe("30–40 s por lado");
-    expect(c.find((e) => e.base === "Abdominal bicicleta").r).toBe("10–12 por lado");
+    expect(c.find((e) => e.base === "Abdominal remador").r).toBe("10–12");
+    expect(c.find((e) => e.base === "Abdominal infra").r).toBe("10–12");
   });
 });
