@@ -1,0 +1,24 @@
+{
+  "name": "dudafit",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "description": "Meu Projeto 45 Dias — app de treino",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "test": "vitest run",
+    "format": "prettier --write \"src/**/*.{js,jsx,css}\" \"*.{json,md,html}\""
+  },
+  "dependencies": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.1.2",
+    "prettier": "3.9.10",
+    "vite": "8.3.4",
+    "vitest": "5.0.4"
+  }
+}
