@@ -49,6 +49,6 @@ describe("exList", () => {
     expect(b.find((e) => e.base === "Prancha frontal").r).toBe("20–30 s");
     expect(b.find((e) => e.base === "Abdominal supra").r).toBe("8–10");
     expect(c.find((e) => e.base === "Prancha lateral").r).toBe("30–40 s por lado");
-    expect(c.find((e) => e.base === "Bird dog (quatro apoios)").r).toBe("10–12 por lado");
+    expect(c.find((e) => e.base === "Abdominal bicicleta").r).toBe("10–12 por lado");
   });
 });
