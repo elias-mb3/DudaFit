@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import CelularQR from "./components/CelularQR.jsx";
 import Perfil from "./components/Perfil.jsx";
 import { useEstado } from "./lib/useEstado.js";
 import Guia from "./views/Guia.jsx";
@@ -16,6 +17,7 @@ const ABAS = [
 export default function App() {
   const [aba, setAba] = useState("hoje");
   const [editandoPerfil, setEditandoPerfil] = useState(false);
+  const [qr, setQr] = useState(false);
   const [msg, setMsg] = useState("");
   const tt = useRef();
   const { S, salvar } = useEstado();
@@ -39,6 +41,7 @@ export default function App() {
         }}
       />
     );
+  else if (qr) corpo = <CelularQR S={S} onFechar={() => setQr(false)} toast={toast} />;
   const app = !corpo;
   const View = ABAS.find((a) => a[0] === aba)[2];
 
@@ -56,6 +59,9 @@ export default function App() {
             <div className="settings">
               <button className="link" onClick={() => setEditandoPerfil(true)}>
                 Meu perfil
+              </button>
+              <button className="link" onClick={() => setQr(true)}>
+                Abrir no celular
               </button>
               <div className="seg">
                 {[[3, "3x academia"], [2, "2x academia"]].map(([o, t]) => (

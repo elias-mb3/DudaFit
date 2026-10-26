@@ -12,6 +12,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css}\" \"*.{json,md,html}\""
   },
   "dependencies": {
+    "qrcode": "1.5.4",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
